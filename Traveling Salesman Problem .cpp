@@ -13,12 +13,17 @@ double distancia(pair<int, int> ciudad1, pair<int, int> ciudad2) {
     return sqrt(dx * dx + dy * dy);
 }
 
-double calcularLongitudRuta(const vector<int>& ruta, const vector<pair<int, int>>& ciudades) {
+double calcularLongitudRuta
+    (
+        const vector<int>& ruta, 
+        const vector<pair<int, int>>& ciudades
+    ) {
     double longitud = 0.0;
     for (int i = 0; i < ruta.size(); i++) {
         int ciudadActual = ruta[i];
         int ciudadSiguiente = ruta[(i + 1) % ruta.size()];
-        longitud += distancia(ciudades[ciudadActual], ciudades[ciudadSiguiente]);
+        longitud += 
+            distancia(ciudades[ciudadActual], ciudades[ciudadSiguiente]);
     }
     return longitud;
 }
@@ -32,6 +37,7 @@ int main() {
     }
 
     vector<int> ruta(numCiudades);
+    //iota asigna valores sucesivos 
     iota(ruta.begin(), ruta.end(), 0);
 
     double mejorLongitud = numeric_limits<double>::max();
